@@ -2,6 +2,7 @@ import "./App.css";
 import { useState } from "react";
 import logo from "./assets/logo.png";
 
+
 function App() {
   const [formData, setFormData] = useState({
     name: "",
@@ -44,7 +45,7 @@ function App() {
       setLoading(true);
 
       const response = await fetch(
-        "http://localhost:3000/api/subscribe",
+        `${import.meta.env.VITE_API_URL}/api/subscribe`,
         {
           method: "POST",
           headers: {
