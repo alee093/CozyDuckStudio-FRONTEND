@@ -4,6 +4,7 @@ import logo from "./assets/logo.png";
 
 
 function App() {
+
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -43,9 +44,8 @@ function App() {
 
     try {
       setLoading(true);
-
       const response = await fetch(
-        `${import.meta.env.VITE_API_URL}/api/subscribe`,
+        `https://cozyduckstudio-backend.onrender.com/api/subscribe`,
         {
           method: "POST",
           headers: {
