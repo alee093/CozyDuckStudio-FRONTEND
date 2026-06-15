@@ -12,6 +12,8 @@ function App() {
 
   const [message, setMessage] = useState("");
   const [loading, setLoading] = useState(false);
+  const [showDelayMessage, setShowDelayMessage] =
+  useState(false);
 
   const handleChange = (e) => {
     setFormData((prev) => ({
@@ -20,64 +22,76 @@ function App() {
     }));
   };
 
-  const handleSubmit = async (e) => {
-    e.preventDefault();
+const handleSubmit = async (e) => {
+  e.preventDefault();
 
-    if (loading) return;
+  if (loading) return;
 
-    const cleanName = formData.name.trim();
-    const cleanEmail = formData.email.trim().toLowerCase();
+  const cleanName = formData.name.trim();
+  const cleanEmail = formData.email
+    .trim()
+    .toLowerCase();
 
-    const nameRegex = /^[\p{L}\s]+$/u;
+  const nameRegex = /^[\p{L}\s]+$/u;
 
-    if (cleanName.length < 3) {
-      setMessage("Name: Min 3 characters.");
-      return;
-    }
+  if (cleanName.length < 3) {
+    setMessage("Name: Min 3 characters.");
+    return;
+  }
 
-    if (!nameRegex.test(cleanName)) {
-      setMessage("Letters only.");
-      return;
-    }
+  if (!nameRegex.test(cleanName)) {
+    setMessage("Letters only.");
+    return;
+  }
 
-    setMessage("");
+  setMessage("");
 
-    try {
-      setLoading(true);
-      const response = await fetch(
-        `https://cozyduckstudio-backend.onrender.com/api/subscribe`,
-        {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify({
-            name: cleanName,
-            email: cleanEmail,
-          }),
-        }
-      );
+  let timeoutId;
 
-      const data = await response.json();
+  try {
+    setLoading(true);
+    setShowDelayMessage(false);
 
-      setMessage(data.message);
+    timeoutId = setTimeout(() => {
+      setShowDelayMessage(true);
+    }, 5000);
 
-      if (response.ok) {
-        setFormData({
-          name: "",
-          email: "",
-        });
+    const response = await fetch(
+      "https://cozyduckstudio-backend.onrender.com/api/subscribe",
+      {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          name: cleanName,
+          email: cleanEmail,
+        }),
       }
-    } catch (error) {
-      console.log(error);
+    );
 
-      setMessage(
-        "Something went wrong. Please try again."
-      );
-    } finally {
-      setLoading(false);
+    const data = await response.json();
+
+    setMessage(data.message);
+
+    if (response.ok) {
+      setFormData({
+        name: "",
+        email: "",
+      });
     }
-  };
+  } catch (error) {
+    console.log(error);
+
+    setMessage(
+      "Something went wrong. Please try again."
+    );
+  } finally {
+    clearTimeout(timeoutId);
+    setShowDelayMessage(false);
+    setLoading(false);
+  }
+};
 
   return (
     <>
@@ -157,6 +171,16 @@ function App() {
               ? "Sending..."
               : "GET FREE WALLPAPER"}
           </button>
+          {showDelayMessage && (
+            <p className="loading-message">
+              The ducks are working on it 🦆
+              <br />
+              Your wallpaper is on its way, but it may take a
+              few seconds.
+              <br />
+              If you don't see it, check your Promotions folder.
+            </p>
+          )}
         </form>
 
         <p className="privacy">

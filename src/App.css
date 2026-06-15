@@ -205,6 +205,25 @@ label{
 .bi-x{
   font-size: 20px;
 }
+.loading-message {
+  margin-top: 15px;
+  text-align: center;
+  color: #4c3a2e;
+  font-size: 14px;
+  line-height: 1.6;
+  font-family: "Nunito", sans-serif;
+  animation: fadeIn 0.3s ease;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
 
 @media(min-width: 768px){
   .title{
