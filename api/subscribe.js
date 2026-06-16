@@ -1,6 +1,6 @@
 import { connectDB } from "./lib/mongodb.js";
 import Subscriber from "./models/Subscriber.js";
-import { sendWallpaperEmail } from "./services/sendWallpaperEmail.js";
+import { sendWallPaperEmail } from "./services/sendWallPaperEmail.js";
 
 export default async function handler(
   req,
@@ -63,7 +63,7 @@ export default async function handler(
       email,
     });
 
-    await sendWallpaperEmail(
+    await sendWallPaperEmail(
       name,
       email
     );

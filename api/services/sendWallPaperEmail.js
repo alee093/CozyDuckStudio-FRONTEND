@@ -7,7 +7,7 @@ const resend = new Resend(
   process.env.RESEND_API_KEY
 );
 
-export const sendWallpaperEmail = async (
+export const sendWallPaperEmail = async (
   name,
   email
 ) => {
