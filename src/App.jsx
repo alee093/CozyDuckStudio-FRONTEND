@@ -57,7 +57,7 @@ const handleSubmit = async (e) => {
     }, 5000);
 
     const response = await fetch(
-      "https://cozyduckstudio-backend.onrender.com/api/subscribe",
+      "/api/subscribe",
       {
         method: "POST",
         headers: {
@@ -114,12 +114,37 @@ const handleSubmit = async (e) => {
           FREE DEVIL DUCK PHONE WALLPAPER
         </h2>
 
-        <p className="description">
-          Fresh out the duck pond and straight into the
-          meadow. Get an exclusive duck wallpaper instantly,
-          plus behind-the-scenes art, new duck drops, polls,
-          freebies, and first access to new collections ♡
-        </p>
+        <div className="description-container">
+          <div className="description-box">
+            <i class="bi bi-heart"></i>
+            <p> EXCLUSIVE ART</p>
+            <span>
+              Original devil duck designs only for our subscribers.
+            </span>
+          </div>
+          <div className="description-box">
+            <i class="bi bi-film"></i>
+            <p>SNEAK PEAKS</p>
+            <span>
+              Behind-the-scenes content, and early looks at new
+              projects.
+            </span>
+          </div>
+          <div className="description-box">
+            <i class="bi bi-gift"></i>
+            <p>FREEBIES & POLLS</p>
+            <span>
+              Vote on new ideas and get special subscriber perks.
+            </span>
+          </div>
+          <div className="description-box">
+            <i class="bi bi-star"></i>
+            <p>FIRST ACCESS</p>
+            <span>
+              Be the first to know about new drops and collections.
+            </span>
+          </div>
+        </div>
       </div>
 
       <div className="form-container">
