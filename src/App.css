@@ -16,11 +16,13 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: 40px;
+/*   padding: 40px; */
   overflow: hidden;
   background-color: #F3E9DE;
 }
-
+.text-container{
+  margin: 0 40px;
+}
 .title{ 
   text-align: center;
   font-size: 35px;
@@ -120,16 +122,18 @@ hr{
 label{
   display: none;
 }
-
+.form-container{
+  margin: 0 40px;
+}
 .form{
   display: flex;
   flex-direction: column;
   gap: 20px;
-  margin-top: 50px;
   width: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
+  margin-top: 50px;
 }
 
 .input-container{
@@ -287,6 +291,17 @@ label{
   }
   .privacy{
     font-size: 14px;
+  }
+  .text-container{
+    margin: 0 10px;
+  }
+  .form-container{
+    margin: 0 10px;
+  }
+}
+@media(max-width: 420px){
+  .form button{
+    width: 250px;
   }
 }
 /* @media(max-width: 589px){
