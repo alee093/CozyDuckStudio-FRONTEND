@@ -113,7 +113,13 @@ const handleSubmit = async (e) => {
         <h2 className="subtitle">
           FREE DEVIL DUCK PHONE WALLPAPER
         </h2>
-
+        <p className="description">
+          Fresh out the duck pond and straight into the
+          meadow. Get an exclusive duck wallpaper instantly,
+          plus behind-the-scenes art, new duck drops, polls,
+          freebies, and first access to new collections ♡
+        </p>
+        {/*
         <div className="description-container">
           <div className="description-box">
             <i class="bi bi-heart"></i>
@@ -145,6 +151,7 @@ const handleSubmit = async (e) => {
             </span>
           </div>
         </div>
+        */}
       </div>
 
       <div className="form-container">

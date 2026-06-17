@@ -63,7 +63,7 @@ hr{
   margin-top: 10px;
 }
 
-.description-container{
+/* .description-container{
   height: 175px;
   margin-top: 30px;
   display: flex;
@@ -105,6 +105,15 @@ hr{
   color: #4C3A2E;
   font-family: 'lora', serif;
   font-weight: 500;
+} */
+.description{
+  text-align: center;
+  font-size: 14px;
+  color: #4C3A2E;
+  font-family: 'nunito', serif;
+  font-weight: 500;
+  margin-top: 10px;
+  max-width: 470px;
 }
 label{
   display: none;
@@ -268,6 +277,9 @@ label{
   .subtitle{
     font-size: 25px;
   }
+  .description{
+    font-size: 20px;
+  }
   .form button{
     width: 350px;
   }
@@ -275,7 +287,7 @@ label{
     font-size: 14px;
   }
 }
-@media(max-width: 589px){
+/* @media(max-width: 589px){
   .description-box span{
     display: none;
   }
@@ -298,4 +310,4 @@ label{
     flex: 0 0 calc(50% - 5px);
     height: 100px;
   }
-}
+} */
